@@ -23,7 +23,7 @@
 		</dependency>
 	
 		<dependency>
-		<groupId>com.exist-training.activity6</groupId>
+			<groupId>com.exist-training.activity6</groupId>
 			<artifactId>model</artifactId>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->

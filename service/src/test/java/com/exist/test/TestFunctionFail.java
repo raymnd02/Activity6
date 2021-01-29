@@ -26,6 +26,7 @@ public class TestFunctionFail {
 	public void testEdit() {
 		System.out.println("Testing on edit()");
 		returnTable = function.edit(1,1,1,"eee",table);
+		
 		assertEquals("ee",returnTable.get(1).get(1).getKey());
 		returnTable = function.edit(1,0,2,"eee",table);
 		assertEquals("ee",returnTable.get(1).get(0).getValue());
@@ -46,6 +47,14 @@ public class TestFunctionFail {
 		returnTable = function.reset(2,4);
 		assertEquals(4,returnTable.size());
 		assertEquals(2,returnTable.get(0).size());
+	}
+	
+	@Test
+	public void testSearch() {
+		System.out.println("Testing on search()");
+		assertTrue(function.search("g",table));
+		assertFalse(function.search("a",table));
+		
 	}
 	
 }

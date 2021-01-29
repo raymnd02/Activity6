@@ -77,7 +77,11 @@ public class Activity2 {
 					System.out.println("The file is empty");
 				} else {
 					String textPattern = Checker.searchInputChecker(sc);
-					function.search(textPattern,tableList);
+					boolean found = function.search(textPattern,tableList);
+					if (found == false) {
+						System.out.println("No Matches found");
+					}
+					System.out.println("");
 				}
 				selectOptions();
 				break;
@@ -85,7 +89,7 @@ public class Activity2 {
 				if (tableList.isEmpty()) {
 					System.out.println("The file is empty");
 				} else {
-					fileIO.writeTable(function.addRow(tableList),file);
+					fileIO.writeTable(function.addRow(Checker.tableLength(tableList),tableList),file);
 				}
 				selectOptions();
 				break;

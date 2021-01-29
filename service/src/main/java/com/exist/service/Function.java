@@ -18,12 +18,12 @@ public class Function {
 		
 		if (keyOrValue == 1) {
 			tableList.get(row).get(column).setKey(changeTo);
-		} else if (keyOrValue == 2){
+		} else {
 			tableList.get(row).get(column).setValue(changeTo);
 		}
 		return tableList;
 	}
-	public void search (String stringToSearch, ArrayList<ArrayList<Table>> tableList) {
+	public boolean search (String stringToSearch, ArrayList<ArrayList<Table>> tableList) {
 		Pattern pattern = Pattern.compile(stringToSearch);
 		boolean foundCheck = false;
 		for (int i = 0; i < tableList.size(); i++) {
@@ -39,21 +39,12 @@ public class Function {
 				}			
 			}
 		}
-		if (foundCheck == false) {
-			System.out.println("No Matches found");
-		}
-		System.out.println("");
+		return foundCheck;
 	}
-	public ArrayList<ArrayList<Table>> addRow (ArrayList<ArrayList<Table>> tableList) {
+	public ArrayList<ArrayList<Table>> addRow (int rowMaxLength,ArrayList<ArrayList<Table>> tableList) {
 		String key;
 		String value;
-		int rowMaxLength = 0;
 		ArrayList<Table> additionalRow = new ArrayList<> ();
-		for (int i = 0; i < tableList.size(); i++) {
-			if (rowMaxLength < tableList.get(i).size()) {
-				rowMaxLength = tableList.get(i).size();
-			}
-		}
 		for (int i = 0; i < rowMaxLength; i++) {
 			System.out.print("[" + (tableList.size()) +"][" + i + "]");
 			System.out.print("Enter Key: ");
@@ -77,8 +68,6 @@ public class Function {
 			.forEach(listForSorting -> {
 				listToSort.add(listForSorting.getKey() + ":" + listForSorting.getValue());
 			});
-		
-
 		if (orderBy == 1) {
 			Collections.sort(listToSort);
 		} else {

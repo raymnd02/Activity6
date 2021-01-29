@@ -1,6 +1,7 @@
 package com.exist.utils;
 import org.apache.commons.lang3.StringUtils;
 import java.util.*;
+import com.exist.model.Table;
 public class Checker {
 	public static String searchInputChecker (Scanner sc) {
 		String textPattern = "";
@@ -60,5 +61,14 @@ public class Checker {
 			}
 		} while ( choiceChecker == false);
 		return choice;
+	}
+	public static int tableLength(ArrayList<ArrayList<Table>> tableList) {
+		int rowMaxLength = 0;
+		for (int i = 0; i < tableList.size(); i++) {
+			if (rowMaxLength < tableList.get(i).size()) {
+				rowMaxLength = tableList.get(i).size();
+			}
+		}
+		return rowMaxLength;
 	}
 }

@@ -1,7 +1,7 @@
 package com.exist.test;
 import org.junit.Test;
 import org.junit.Ignore;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import java.util.*;
 import org.junit.*;
@@ -51,6 +51,14 @@ public class TestFunction {
 		returnTable = function.reset(2,4);
 		assertEquals(2,returnTable.size());
 		assertEquals(4,returnTable.get(0).size());
+	}
+	
+	@Test
+	public void testSearch() {
+		System.out.println("Testing on search()");
+		assertTrue(function.search("a",table));
+		assertFalse(function.search("g",table));
+		
 	}
 	
 }
